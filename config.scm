@@ -14,7 +14,7 @@
   dbus)
 
 (operating-system
-  (host-name "guixos")
+  (host-name "guix")
   (timezone "America/Sao_Paulo")
   (locale "pt_BR.UTF-8")
 
@@ -74,7 +74,7 @@
   (packages
     (append
       (list
-        firefox
+        firefox-esr
         flatpak
         gvfs)
 
@@ -83,10 +83,7 @@
   (services
     (append
       (list
-        (service gnome-desktop-service-type)
-        (service gdm-service-type)
-        (service flatpak-service-type))
-
+        (service gnome-desktop-service-type))
       %desktop-services))
 
   (name-service-switch %mdns-host-lookup-nss))
