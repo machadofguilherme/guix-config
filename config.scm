@@ -46,6 +46,7 @@
       system-services
       (modify-services %desktop-services
         (delete gdm-service-type)
+	(delete mingetty-service-type)
         (ntp-service-type config =>
           (ntp-configuration
             (inherit config)

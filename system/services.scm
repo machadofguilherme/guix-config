@@ -12,6 +12,12 @@
 
 (define system-services
   (list
+    ;; Consoles de texto
+    (service mingetty-service-type (mingetty-configuration (tty "tty2")))
+    (service mingetty-service-type (mingetty-configuration (tty "tty3")))
+    (service mingetty-service-type (mingetty-configuration (tty "tty4")))
+    (service mingetty-service-type (mingetty-configuration (tty "tty5")))
+    (service mingetty-service-type (mingetty-configuration (tty "tty6")))
 
     ;; TRIM automático para SSD
     (service fstrim-service-type)
