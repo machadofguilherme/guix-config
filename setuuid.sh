@@ -16,7 +16,7 @@
 
 set -eu
 
-CONFIG_FILE="${1:-./config.scm}"
+CONFIG_FILE="${1:-./system/filesystem.scm}"
 
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "Erro: arquivo '$CONFIG_FILE' não encontrado." >&2
