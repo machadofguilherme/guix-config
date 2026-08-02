@@ -14,6 +14,7 @@
   (gnu system keyboard)
 
   (gnu services xorg)
+  (gnu services base)
   (gnu services desktop)
   (gnu services networking)
 
