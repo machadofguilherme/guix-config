@@ -27,7 +27,7 @@
       (device
         (uuid "ba518bb4-49dd-4841-a649-d4b3f768d9c3"))
       (type "btrfs")
-      (options "subvol=@store,compress=zstd"))
+      (options "subvol=@gnu,compress=zstd"))
 
     (file-system
       (mount-point "/boot/efi")
