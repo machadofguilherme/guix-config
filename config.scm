@@ -17,6 +17,8 @@
   (gnu services desktop)
   (gnu services networking)
 
+  (srfi srfi-1)
+
   (system boot)
   (system doas)
   (system user)
@@ -47,6 +49,8 @@
       (modify-services %desktop-services
         (delete gdm-service-type)
 	(delete mingetty-service-type)
+        (console-font-service-type config =>
+           (remove (lambda (pair) (string=? (car pair) "tty1")) config))
         (ntp-service-type config =>
           (ntp-configuration
             (inherit config)
