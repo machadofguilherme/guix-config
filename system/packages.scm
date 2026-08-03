@@ -14,6 +14,7 @@
   #:use-module (gnu packages package-management)
   #:use-module (gnu packages ncurses)
   #:use-module (gnu packages docker)
+  #:use-module (saayix packages binaries)
   #:export (system-packages))
 
 (define system-packages
@@ -31,5 +32,6 @@
     starship
     openssh
     keychain
+    zen-browser-bin
     font-nerd-jetbrains-mono ;; Será movido para guix home
     opendoas))
