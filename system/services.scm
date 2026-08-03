@@ -36,7 +36,8 @@
     (service sddm-service-type
       (sddm-configuration
         (display-server "wayland")
-        (theme "breeze")))
+        (theme "breeze")
+        (sddm (specification->package "sddm"))))
 
     ;; doas
     (simple-service 'doas-config
