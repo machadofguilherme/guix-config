@@ -5,7 +5,6 @@
   #:use-module (gnu packages version-control)
   #:use-module (gnu packages ssh)
   #:use-module (gnu packages shells)
-  #:use-module (gnu packages shellutils)
   #:use-module (gnu packages fonts)
   #:use-module (gnu packages text-editors)
   #:use-module (gnu packages wget)
@@ -29,9 +28,7 @@
     pfetch
     ncurses
     flatpak
-    starship
     openssh
     keychain
     zen-browser-bin
-    font-nerd-jetbrains-mono ;; Será movido para guix home
     opendoas))

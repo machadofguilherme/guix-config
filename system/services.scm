@@ -1,6 +1,7 @@
 (define-module (system services)
   #:use-module (guix gexp)
   #:use-module (guix packages)
+  #:use-module (gnu system)
   #:use-module (gnu services)
   #:use-module (gnu services base)
   #:use-module (gnu services linux)
@@ -12,8 +13,20 @@
   #:export (system-services))
 
 
+(define guix-config-ownership-service
+  (simple-service 'guix-config-ownership
+                   activation-service-type
+                   #~(begin
+                       (chown "/etc/guix" (passwd:uid (getpwnam "guilherme"))
+                                          (passwd:gid (getpwnam "guilherme")))
+                       (chmod "/etc/guix" #o755))))
+
+
 (define system-services
   (list
+    ;; Permissão do /etc/guix
+    guix-config-ownership-service
+
     ;; Consoles de texto
     (service mingetty-service-type (mingetty-configuration (tty "tty2")))
     (service mingetty-service-type (mingetty-configuration (tty "tty3")))
