@@ -1,5 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # guix-enter.sh — chroot num Guix System já instalado, ao estilo do nixos-enter.
+#
+# Guix (System e Live ISO) não garante /usr/bin/env, só /bin/sh — por isso o
+# shebang aponta direto pra /bin/sh em vez de usar env pra achar o bash.
 #
 # Uso:
 #   ./guix-enter.sh                        # abre shell interativo dentro do chroot
@@ -11,7 +14,7 @@
 # Este script cuida só do --rbind de /proc, /sys, /dev, do chroot em si e
 # de carregar os perfis do Guix — não faz o mount inicial dos subvolumes.
 
-set -euo pipefail
+set -eu
 
 MNT="/mnt"
 USER_NAME="guilherme"
@@ -49,6 +52,9 @@ if [ ! -d "$MNT/gnu" ] || [ ! -d "$MNT/var/guix" ]; then
   echo "Monte os subvolumes (@root em $MNT, @home, @gnu, EFI) antes de rodar este script." >&2
   exit 1
 fi
+
+echo ">> Garantindo que $MNT/proc, $MNT/sys, $MNT/dev existem ..."
+mkdir -p "$MNT/proc" "$MNT/sys" "$MNT/dev"
 
 echo ">> Montando /proc, /sys, /dev em $MNT ..."
 mount --rbind /proc "$MNT/proc"
