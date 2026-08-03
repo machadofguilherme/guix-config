@@ -21,6 +21,7 @@
     git
     fish
     nano
+    micro
     curl
     wget
     btop

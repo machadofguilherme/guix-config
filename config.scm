@@ -47,18 +47,21 @@
   (services
     (append
       system-services
-      (modify-services %desktop-services
-        (delete gdm-service-type)
-	(delete mingetty-service-type)
-        (console-font-service-type config =>
-           (remove (lambda (pair) (string=? (car pair) "tty1")) config))
-        (ntp-service-type config =>
-          (ntp-configuration
-            (inherit config)
-            (servers
-              (cons
-                (ntp-server
-                  (type 'server)
-                  (address "br.pool.ntp.org")
-                  (options '(iburst (version 4) (maxpoll 16) prefer)))
-            %ntp-servers))))))))
+        (remove
+          (lambda (service)
+            (eq? (service-type-name (service-kind service)) 'network-manager-applet))
+        (modify-services %desktop-services
+          (delete gdm-service-type)
+          (delete mingetty-service-type)
+          (console-font-service-type config =>
+            (remove (lambda (pair) (string=? (car pair) "tty1")) config))
+          (ntp-service-type config =>
+            (ntp-configuration
+              (inherit config)
+                (servers
+                  (cons
+                    (ntp-server
+                      (type 'server)
+                      (address "br.pool.ntp.org")
+                      (options '(iburst (version 4) (maxpoll 16) prefer)))
+                  %ntp-servers)))))))))
