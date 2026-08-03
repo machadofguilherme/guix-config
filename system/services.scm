@@ -8,7 +8,7 @@
   #:use-module (gnu services desktop)
   #:use-module (gnu services sddm)
   #:use-module (gnu system pam)
-  #:use-module (gnu packages kde-frameworks)
+  #:use-module (gnu packages display-managers)
   #:export (system-services))
 
 
