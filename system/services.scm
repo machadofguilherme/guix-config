@@ -1,5 +1,6 @@
 (define-module (system services)
   #:use-module (guix gexp)
+  #:use-module (guix packages)
   #:use-module (gnu services)
   #:use-module (gnu services base)
   #:use-module (gnu services linux)
@@ -7,6 +8,7 @@
   #:use-module (gnu services desktop)
   #:use-module (gnu services sddm)
   #:use-module (gnu system pam)
+  #:use-module (gnu packages kde-frameworks)
   #:export (system-services))
 
 
@@ -35,9 +37,9 @@
     ;; SDDM Wayland
     (service sddm-service-type
       (sddm-configuration
-        (display-server "wayland")
+        (sddm sddm)
         (theme "breeze")
-        (sddm (specification->package "sddm"))))
+        (display-server "wayland")))
 
     ;; doas
     (simple-service 'doas-config
