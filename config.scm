@@ -41,6 +41,7 @@
   (kernel system-kernel)
   (initrd system-initrd)
   (firmware system-firmware)
+  (kernel-arguments system-kernel-arguments)
   (packages (append system-packages %base-packages))
 
   ;; Serviços modificados.

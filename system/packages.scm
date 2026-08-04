@@ -2,6 +2,7 @@
   #:use-module (guix packages)
   #:use-module (gnu packages)
   #:use-module (gnu packages admin)
+  #:use-module (gnu packages glib)
   #:use-module (gnu packages version-control)
   #:use-module (gnu packages ssh)
   #:use-module (gnu packages shells)
@@ -25,6 +26,7 @@
     curl
     wget
     btop
+    dbus
     pfetch
     ncurses
     flatpak

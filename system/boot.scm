@@ -3,6 +3,7 @@
 ;; ==========================================================================
 
 (define-module (system boot)
+  #:use-module (gnu system)
   #:use-module (gnu bootloader)
   #:use-module (gnu bootloader grub)
   #:use-module (nongnu packages linux)
@@ -11,7 +12,8 @@
   #:export (system-bootloader
             system-kernel
             system-initrd
-            system-firmware))
+            system-firmware
+            system-kernel-arguments))
 
 (define system-bootloader
   (bootloader-configuration
@@ -22,3 +24,4 @@
 (define system-kernel linux)
 (define system-initrd microcode-initrd)
 (define system-firmware (list linux-firmware amd-microcode))
+(define system-kernel-arguments (append (list "ipv6.disable=1" "loglevel=1") %default-kernel-arguments))

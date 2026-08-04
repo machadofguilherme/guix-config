@@ -7,8 +7,8 @@
     ("gs" . "git status")
 
     ("gx-update"       . "guix pull")
-    ("gx-rebuild"      . "doas guix system reconfigure $GUIX_CONFIG/config.scm")
-    ("gx-rebuild-test" . "guix system build $GUIX_CONFIG/config.scm")
+    ("gx-rebuild"      . "doas guix system reconfigure -L $GUIX_CONFIG $GUIX_CONFIG/config.scm")
+    ("gx-rebuild-test" . "guix system build -L $GUIX_CONFIG $GUIX_CONFIG/config.scm")
     ("gx-home-rebuild" . "guix home reconfigure -L $GUIX_CONFIG $GUIX_CONFIG/home/home-configuration.scm")
     ("gx-gc"           . "doas guix gc -d 2d")
     ("gx-gc-all"       . "doas guix gc -d 2d -F 10G")

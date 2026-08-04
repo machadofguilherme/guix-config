@@ -32,7 +32,7 @@
     (file-system
       (mount-point "/boot/efi")
       (device
-        (uuid "76A1-906B" 'fat32))
+        (uuid "515E-B682" 'fat32))
       (type "vfat"))
 
     %base-file-systems))

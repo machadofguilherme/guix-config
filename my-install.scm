@@ -14,6 +14,9 @@
           (nonguix-transformation-linux #:initrd base-initrd))
  (operating-system
    (inherit installation-os)
+   (kernel-arguments
+    (append (list "ipv6.disable=1" "loglevel=1")
+           %default-kernel-arguments))
    (packages
     (append
      (list ncurses htop rsync parted gptfdisk util-linux git-minimal)
