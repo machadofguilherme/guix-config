@@ -1,3 +1,7 @@
+;; ==========================================================================
+;; Pacotes
+;; ==========================================================================
+
 (define-module (home packages)
   #:use-module (gnu packages admin)
   #:use-module (gnu packages fonts)
