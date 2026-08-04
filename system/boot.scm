@@ -18,6 +18,7 @@
 (define system-bootloader
   (bootloader-configuration
     (bootloader grub-efi-bootloader)
+    (timeout 3)
     (targets
       '("/boot/efi"))))
 

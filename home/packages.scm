@@ -7,6 +7,7 @@
   #:use-module (gnu packages games)
   #:use-module (gnu packages node)
   #:use-module (gnu packages rust-apps)
+  #:use-module (gnu packages kde-multimedia)
   #:use-module (gnu packages shellutils)
   #:use-module (gnu packages compression)
   #:use-module (px packages editors)
@@ -16,7 +17,8 @@
 
 (define home-packages
   (list
-   bat eza bun yt-dlp tree inxi #;ngrok cowsay unzip vscode starship steam node
+   bat eza bun yt-dlp tree inxi #;ngrok
+   cowsay unzip vscode starship steam node haruna
    font-nerd-fira-code font-jetbrains-mono font-google-noto-sans-cjk
    font-google-roboto-mono font-google-roboto font-open-sans
    font-ubuntu-sans font-ubuntu-sans-mono font-dina
