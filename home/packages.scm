@@ -3,10 +3,10 @@
 ;; ==========================================================================
 
 (define-module (home packages)
+  #:use-module (gnu packages linux)
   #:use-module (gnu packages admin)
   #:use-module (gnu packages fonts)
   #:use-module (nongnu packages fonts)
-  #:use-module (nongnu packages game-client)
   #:use-module (gnu packages video)
   #:use-module (gnu packages games)
   #:use-module (gnu packages node)
@@ -22,7 +22,7 @@
 (define home-packages
   (list
    bat eza bun yt-dlp tree inxi #;ngrok
-   cowsay unzip vscode starship steam node haruna
+   cowsay unzip vscode starship node haruna
    font-nerd-fira-code font-jetbrains-mono font-google-noto-sans-cjk
    font-google-roboto-mono font-google-roboto font-open-sans
    font-ubuntu-sans font-ubuntu-sans-mono font-dina

@@ -12,7 +12,9 @@
   #:use-module (gnu services docker)
   #:use-module (gnu services desktop)
   #:use-module (gnu services sddm)
+  #:use-module (gnu services dbus)
   #:use-module (gnu system pam)
+  #:use-module (gnu packages linux)
   #:use-module (gnu packages display-managers)
   #:export (system-services))
 
@@ -66,6 +68,11 @@
           ,(plain-file
              "doas.conf"
              "permit nopass :wheel\n"))))
+
+	;; Gamemode
+    (simple-service 'gamemode-polkit-actions
+      polkit-service-type
+      (list gamemode))
 
     ;; ZRAM 16 GiB
     (service zram-device-service-type
